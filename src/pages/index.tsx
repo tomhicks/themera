@@ -115,7 +115,7 @@ export default function Home() {
         <Stack isInline spacing={6} alignSelf="flex-start" fontWeight="500">
           <DarkSwitch />
           <Text color={"gray.500"}>
-            <Link isExternal href={"https://twitter.com/Hicksyfern"}>
+            <Link isExternal href={"https://github.com/tomhicks/themera"}>
               Github
             </Link>
           </Text>
