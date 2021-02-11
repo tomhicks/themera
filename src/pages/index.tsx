@@ -44,7 +44,7 @@ import {useAtomValue} from "jotai/utils"
 import Head from "next/head"
 import React from "react"
 import {SketchPicker} from "react-color"
-import {chakraColorAtom, ColorConfig, overrideConfigAtom} from "../src/atom"
+import {chakraColorAtom, ColorConfig, overrideConfigAtom} from "../atom"
 
 export default function Home() {
   const [config, setConfig] = useAtom(overrideConfigAtom)
@@ -109,7 +109,7 @@ export default function Home() {
         <Box flex={1}>
           <Heading size="2xl">Themera</Heading>
           <Text fontFamily="heading" color="gray.500">
-            Chakra UI Theme Generator
+            Create Chakra UI color schemes in seconds ⚡️
           </Text>
         </Box>
         <Stack isInline spacing={6} alignSelf="flex-start" fontWeight="500">
@@ -268,8 +268,8 @@ export default function Home() {
   )
 }
 
-const modalAtom = atom(true)
-const useModalOpen = () => useAtom(modalAtom)
+const modalOpenAtom = atom(false)
+const useModalOpen = () => useAtom(modalOpenAtom)
 
 function ExportButton() {
   const [isOpen, setIsOpen] = useModalOpen()
@@ -363,9 +363,9 @@ function ExportModal() {
                 useful, please give it a{" "}
                 <Link
                   textDecor="underline"
-                  href={`https://twitter.com/intent/tweet?url=${encodeURI(
-                    "https://themera.netlify.com"
-                  )}`}
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                    "I made my @Chakra_UI color scheme using Themera"
+                  )}&url=${encodeURI("https://themera.vercel.app")}`}
                 >
                   shout out on Twitter
                 </Link>{" "}
@@ -402,8 +402,8 @@ function ColorPicker() {
   return (
     <Stack spacing={6}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Themera | Create Chakra UI Color Schemes in seconds</title>
+        <link rel="icon" href="/favicon.png" />
       </Head>
       {colors.map((color) => (
         <Box w="full">
